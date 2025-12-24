@@ -4,7 +4,7 @@
 
 ---
 
-![The Lede Screenshot](https://i.imgur.com/YOUR_SCREENSHOT_HERE.png) 
+![The Lede Screenshot](https://i.imgur.com/UbfLhNH.png) 
 *Note: You can take a screenshot of the app and upload it to a service like Imgur to create a preview image.*
 
 ## About The Project
