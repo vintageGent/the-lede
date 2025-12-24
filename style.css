@@ -1,0 +1,189 @@
+/* --- DARK MODE THEME --- */
+
+/* General Body & Font Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #233d4d; /* Charcoal */
+    color: #ecf0f1; /* Light Gray/Off-white */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #2c4a5c; /* Slightly Lighter Charcoal */
+    padding: 20px 40px;
+    border-radius: 8px;
+    border: 1px solid #365a6f;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    border-bottom: 1px solid #365a6f;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #bdc3c7; /* Lighter gray for subheading */
+    font-size: 1.1em;
+}
+
+/* Introduction Section */
+.intro-section {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #365a6f;
+}
+.intro-section h2 {
+    border: none;
+}
+.intro-p {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #bdc3c7;
+}
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.step {
+    flex: 1;
+    background-color: #233d4d;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #365a6f;
+}
+.step h4 {
+    color: #fe7f2d; /* Pumpkin */
+    margin-top: 0;
+}
+
+/* Main Layout */
+main {
+    display: flex;
+    gap: 40px;
+}
+
+.form-container, .output-container {
+    flex: 1;
+}
+
+h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #fe7f2d; /* Pumpkin */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Form Element Styling */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #bdc3c7;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    background-color: #233d4d; /* Charcoal */
+    border: 1px solid #365a6f;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #ecf0f1; /* Light text */
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #fe7f2d; /* Pumpkin */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    background-color: #fe7f2d; /* Pumpkin */
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #e67328; /* Darker Pumpkin */
+}
+
+/* Linter Suggestions Styling */
+#linter-suggestions {
+    display: none;
+    background-color: #364e5a;
+    border: 1px solid #4a6b7b;
+    border-left: 4px solid #fe7f2d; /* Pumpkin */
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#linter-suggestions h3 {
+    margin-top: 0;
+    color: #f39c12; /* A complementary yellow/orange */
+}
+
+#linter-suggestions ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+#linter-suggestions li {
+    margin-bottom: 8px;
+}
+
+/* Output Area Styling */
+.press-release-output {
+    background-color: #233d4d; /* Charcoal */
+    padding: 20px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    min-height: 400px;
+    border: 1px solid #365a6f;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    color: #ecf0f1;
+}
+
+#copy-button {
+    margin-top: 15px;
+    background-color: #27ae60; /* Green for success */
+}
+
+#copy-button:hover {
+    background-color: #229954;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    main, .steps {
+        flex-direction: column;
+    }
+}

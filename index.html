@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR Generator & Linter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PR Generator & Linter</h1>
+            <p>An intelligent tool for crafting the perfect press release.</p>
+        </header>
+
+        <section class="intro-section">
+            <h2>A Smart Tool for Perfect Press Releases</h2>
+            <p class="intro-p">The PR Generator & Linter helps you craft professionally formatted press releases with confidence. Move beyond simple templates with a tool that not only generates your content but also analyzes it against industry best practices in real-time.</p>
+            <h3>How It Works</h3>
+            <div class="steps">
+                <div class="step">
+                    <h4>1. Fill the Form</h4>
+                    <p>Provide your content in the fields on the left, from the headline to the boilerplate.</p>
+                </div>
+                <div class="step">
+                    <h4>2. Get Live Feedback</h4>
+                    <p>The Linter provides instant suggestions to improve your copy as you work.</p>
+                </div>
+                <div class="step">
+                    <h4>3. Generate & Copy</h4>
+                    <p>Click "Generate" to see the final, formatted output and copy it with a single click.</p>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="form-container">
+                <h2>Press Release Content</h2>
+                <form id="pr-form">
+                    <label for="headline">Headline</label>
+                    <input type="text" id="headline" placeholder="Catchy, Clear, and Concise Headline" required>
+
+                    <label for="city">City, State</label>
+                    <input type="text" id="city" placeholder="e.g., San Francisco, CA" required>
+
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" placeholder="Your Company Name" required>
+                    
+                    <label for="announcement">The Core Announcement</label>
+                    <textarea id="announcement" rows="4" placeholder="The most important piece of news (the who, what, when, where, why)." required></textarea>
+
+                    <label for="ceoQuote">Quote from Key Person (e.g., CEO)</label>
+                    <textarea id="ceoQuote" rows="3" placeholder="A compelling quote that adds emotion or vision." required></textarea>
+
+                    <label for="ceoName">Name of Key Person</label>
+                    <input type="text" id="ceoName" placeholder="e.g., Jane Doe, CEO" required>
+
+                    <label for="boilerplate">Boilerplate</label>
+                    <textarea id="boilerplate" rows="3" placeholder="Your standard, reusable paragraph about your company." required></textarea>
+
+                    <label for="mediaContact">Media Contact Name</label>
+                    <input type="text" id="mediaContact" placeholder="Name of media contact" required>
+
+                    <label for="mediaEmail">Media Contact Email</label>
+                    <input type="email" id="mediaEmail" placeholder="e.g., press@yourcompany.com" required>
+
+                    <div id="linter-suggestions">
+                        <!-- Linter suggestions will be added here by JavaScript -->
+                    </div>
+
+                    <button type="submit">Generate Press Release</button>
+                </form>
+            </div>
+
+            <div class="output-container">
+                <h2>Generated Release</h2>
+                <div id="output" class="press-release-output">
+                    <!-- The generated press release will appear here -->
+                </div>
+                <button id="copy-button" style="display:none;">Copy to Clipboard</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
