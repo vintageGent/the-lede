@@ -43,3 +43,4 @@ Building a content-focused site taught me a lot about the balance between design
 My main challenge was architecting the content structure. I needed a flexible way to handle different types of articles, pages, and metadata. I chose Next.js to leverage its powerful server-side rendering and simplified file-based routing. This made creating new pages for different articles feel incredibly natural and efficient.
 
 On the design front, I opted for a minimalist aesthetic using Tailwind CSS. I wanted to ensure that nothing distracts from the content itself—the story is the star of the show. This project was a great exercise in creating a clean, readable, and performant user experience.
+This project was built as a learning exercise to master these modern technologies.
