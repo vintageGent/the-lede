@@ -4,35 +4,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyButton = document.getElementById('copy-button');
     const linterSuggestionsDiv = document.getElementById('linter-suggestions');
 
-    // --- LINTER RULES ---
-    const BUZZWORDS = ['synergy', 'disruptive', 'paradigm shift', 'game-changer', 'bleeding-edge', 'next-generation', 'revolutionary'];
-    const HEADLINE_MAX_LENGTH = 100;
+    const BUZZWORDS = [
+        'synergy', 'disruptive', 'paradigm shift', 'game-changer',
+        'bleeding-edge', 'next-generation', 'revolutionary', 'impactful',
+        'cutting-edge', 'world-class', 'innovative', 'groundbreaking'
+    ];
 
-    function runLinter(data) {
+    const FORBIDDEN_ADJECTIVES = [
+        'very', 'extremely', 'amazingly', 'unbelievably', 'huge', 'big', 'incredible'
+    ];
+
+    const HEADLINE_MAX_LENGTH = 70;
+    const SENTENCE_MAX_LENGTH = 25; // Words
+
+    function runLinter() {
+        const data = {
+            headline: document.getElementById('headline').value,
+            announcement: document.getElementById('announcement').value,
+            boilerplate: document.getElementById('boilerplate').value,
+        };
+
         const suggestions = [];
 
-        // Rule 1: Check headline length
-        if (data.headline.length > HEADLINE_MAX_LENGTH) {
-            suggestions.push(`<li><strong>Headline Length:</strong> Your headline is ${data.headline.length} characters long. Try to keep it under ${HEADLINE_MAX_LENGTH} for better impact.</li>`);
+        // Rule 1: Headline Precision
+        if (data.headline.trim().length > HEADLINE_MAX_LENGTH) {
+            suggestions.push(`<li><strong>Headline Precision:</strong> Your headline is a bit long (${data.headline.length} chars). Aim for under ${HEADLINE_MAX_LENGTH} for maximum newsroom impact.</li>`);
+        }
+        if (data.headline && !/^[A-Z]/.test(data.headline)) {
+            suggestions.push(`<li><strong>Formatting:</strong> Always capitalize the first word of your headline.</li>`);
         }
 
-        // Rule 2: Check for buzzwords in the announcement
-        const foundBuzzwords = [];
-        for (const word of BUZZWORDS) {
-            if (data.announcement.toLowerCase().includes(word)) {
-                foundBuzzwords.push(word);
-            }
-        }
+        // Rule 2: Buzzword Detection
+        const foundBuzzwords = BUZZWORDS.filter(word => data.announcement.toLowerCase().includes(word));
         if (foundBuzzwords.length > 0) {
-            suggestions.push(`<li><strong>Buzzwords Found:</strong> Consider replacing these words with more direct language: <strong>${foundBuzzwords.join(', ')}</strong>.</li>`);
-        }
-        
-        // Rule 3: Check for placeholder text
-        if (data.boilerplate.toLowerCase().includes('your standard, reusable paragraph')) {
-            suggestions.push(`<li><strong>Boilerplate:</strong> Don't forget to replace the placeholder boilerplate text.</li>`);
+            suggestions.push(`<li><strong>Journalistic Tone:</strong> Reporters hate fluff. Consider cutting these buzzwords: <strong>${foundBuzzwords.join(', ')}</strong>.</li>`);
         }
 
-        return suggestions;
+        // Rule 3: Adjective Density
+        const foundAdjectives = FORBIDDEN_ADJECTIVES.filter(word => data.announcement.toLowerCase().includes(word));
+        if (foundAdjectives.length > 0) {
+            suggestions.push(`<li><strong>Clarity:</strong> Minimize use of intensifiers like <strong>${foundAdjectives.join(', ')}</strong>. Let the facts speak for themselves.</li>`);
+        }
+
+        // Rule 4: Sentence Length
+        const sentences = data.announcement.split(/[.!?]/);
+        const longSentences = sentences.filter(s => s.trim().split(/\s+/).length > SENTENCE_MAX_LENGTH);
+        if (longSentences.length > 0) {
+            suggestions.push(`<li><strong>Readability:</strong> One of your sentences is over ${SENTENCE_MAX_LENGTH} words. Break it down for better flow.</li>`);
+        }
+
+        // Rule 5: Placeholder Check
+        if (data.boilerplate.toLowerCase().includes('your standard, reusable')) {
+            suggestions.push(`<li><strong>Identification:</strong> Update your boilerplate to reflect Mwithiga Labs.</li>`);
+        }
+
+        displayLinterSuggestions(suggestions);
     }
 
     function displayLinterSuggestions(suggestions) {
@@ -45,11 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '<h3>Linter Suggestions</h3><ul>';
         html += suggestions.join('');
         html += '</ul>';
-        
+
         linterSuggestionsDiv.innerHTML = html;
         linterSuggestionsDiv.style.display = 'block';
     }
 
+
+    // Live Linting
+    form.addEventListener('input', runLinter);
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -65,35 +94,38 @@ document.addEventListener('DOMContentLoaded', () => {
             mediaContact: document.getElementById('mediaContact').value,
             mediaEmail: document.getElementById('mediaEmail').value,
         };
-        
-        // --- RUN LINTER ---
-        const linterResults = runLinter(formData);
-        displayLinterSuggestions(linterResults);
-        
+
         const today = new Date();
-        const dateString = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        const dateString = today.toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric'
+        }).toUpperCase();
 
         const pressReleaseText = `
 FOR IMMEDIATE RELEASE
 
-## ${formData.headline}
+${formData.headline.toUpperCase()}
 
-**${formData.city} – ${dateString} –** ${formData.companyName}, today announced ${formData.announcement}.
+${formData.city.toUpperCase()} — ${dateString} — ${formData.companyName} today announced ${formData.announcement}.
 
 "${formData.ceoQuote}," said ${formData.ceoName}.
 
-### About ${formData.companyName}
+###
+
+ABOUT ${formData.companyName.toUpperCase()}
 ${formData.boilerplate}
 
-### Media Contact
+MEDIA CONTACT
 ${formData.mediaContact}
 ${formData.mediaEmail}
 
-###
+# # #
         `;
 
-        outputDiv.innerText = pressReleaseText;
+        outputDiv.innerText = pressReleaseText.trim();
         copyButton.style.display = 'block';
+        outputDiv.scrollIntoView({ behavior: 'smooth' });
     });
 
     copyButton.addEventListener('click', () => {

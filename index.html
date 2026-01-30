@@ -1,87 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR Generator & Linter</title>
+    <title>The Lede | Mwithiga Labs</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>PR Generator & Linter</h1>
-            <p>An intelligent tool for crafting the perfect press release.</p>
+            <h1 class="glitch-text">The Lede</h1>
+            <p>Intelligent Press Release Analysis & Crafting</p>
         </header>
 
         <section class="intro-section">
-            <h2>A Smart Tool for Perfect Press Releases</h2>
-            <p class="intro-p">The PR Generator & Linter helps you craft professionally formatted press releases with confidence. Move beyond simple templates with a tool that not only generates your content but also analyzes it against industry best practices in real-time.</p>
-            <h3>How It Works</h3>
+            <h2>Precision in Communication</h2>
+            <p class="intro-p">In the Lab, we believe that the first word is the most important. The Lede analyzes your
+                dispatches against industry benchmarks to ensure they land with maximum impact.</p>
             <div class="steps">
                 <div class="step">
-                    <h4>1. Fill the Form</h4>
-                    <p>Provide your content in the fields on the left, from the headline to the boilerplate.</p>
+                    <h4>1. Feed the Data</h4>
+                    <p>Enter your headline, announcement, and core vision into the portal.</p>
                 </div>
                 <div class="step">
-                    <h4>2. Get Live Feedback</h4>
-                    <p>The Linter provides instant suggestions to improve your copy as you work.</p>
+                    <h4>2. Live Infiltration</h4>
+                    <p>Our intelligent linter scans for buzzwords and structural weaknesses as you type.</p>
                 </div>
                 <div class="step">
-                    <h4>3. Generate & Copy</h4>
-                    <p>Click "Generate" to see the final, formatted output and copy it with a single click.</p>
+                    <h4>3. Dispatch</h4>
+                    <p>Generate a perfectly formatted, journalistic-standard release ready for the wire.</p>
                 </div>
             </div>
         </section>
 
         <main>
             <div class="form-container">
-                <h2>Press Release Content</h2>
+                <h2>Content Portal</h2>
                 <form id="pr-form">
                     <label for="headline">Headline</label>
                     <input type="text" id="headline" placeholder="Catchy, Clear, and Concise Headline" required>
 
-                    <label for="city">City, State</label>
+                    <label for="city">Origin (City, State)</label>
                     <input type="text" id="city" placeholder="e.g., San Francisco, CA" required>
 
-                    <label for="companyName">Company Name</label>
-                    <input type="text" id="companyName" placeholder="Your Company Name" required>
-                    
-                    <label for="announcement">The Core Announcement</label>
-                    <textarea id="announcement" rows="4" placeholder="The most important piece of news (the who, what, when, where, why)." required></textarea>
+                    <label for="companyName">Organization</label>
+                    <input type="text" id="companyName" placeholder="Your Company/Org Name" required>
 
-                    <label for="ceoQuote">Quote from Key Person (e.g., CEO)</label>
-                    <textarea id="ceoQuote" rows="3" placeholder="A compelling quote that adds emotion or vision." required></textarea>
+                    <label for="announcement">The Core Dispatch</label>
+                    <textarea id="announcement" rows="4" placeholder="The who, what, when, where, and why. Be direct."
+                        required></textarea>
 
-                    <label for="ceoName">Name of Key Person</label>
+                    <label for="ceoQuote">Visionary Quote</label>
+                    <textarea id="ceoQuote" rows="3" placeholder="A compelling quote that adds depth to the story."
+                        required></textarea>
+
+                    <label for="ceoName">Voice (Name & Title)</label>
                     <input type="text" id="ceoName" placeholder="e.g., Jane Doe, CEO" required>
 
-                    <label for="boilerplate">Boilerplate</label>
-                    <textarea id="boilerplate" rows="3" placeholder="Your standard, reusable paragraph about your company." required></textarea>
+                    <label for="boilerplate">The Background (Boilerplate)</label>
+                    <textarea id="boilerplate" rows="3" placeholder="A standard paragraph about your organization."
+                        required></textarea>
 
-                    <label for="mediaContact">Media Contact Name</label>
+                    <label for="mediaContact">Dispatcher Name</label>
                     <input type="text" id="mediaContact" placeholder="Name of media contact" required>
 
-                    <label for="mediaEmail">Media Contact Email</label>
+                    <label for="mediaEmail">Contact Secure Email</label>
                     <input type="email" id="mediaEmail" placeholder="e.g., press@yourcompany.com" required>
 
                     <div id="linter-suggestions">
                         <!-- Linter suggestions will be added here by JavaScript -->
                     </div>
 
-                    <button type="submit">Generate Press Release</button>
+                    <button type="submit">Generate Field Dispatch</button>
                 </form>
             </div>
 
             <div class="output-container">
-                <h2>Generated Release</h2>
+                <h2>Final Dispatch</h2>
                 <div id="output" class="press-release-output">
                     <!-- The generated press release will appear here -->
                 </div>
-                <button id="copy-button" style="display:none;">Copy to Clipboard</button>
+                <button id="copy-button" style="display:none;">Extract to Clipboard</button>
             </div>
         </main>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
